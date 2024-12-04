@@ -31,6 +31,14 @@ public class Ex1 {
          */
         public static boolean isNumber(String a) {
             boolean ans = true;
+
+            for (int i = 0; i < a.length();i++)
+            {
+                char ch = a.charAt(i);
+                if (ch <= '9' && ch >= '0') return true;
+            }
+            if (a.charAt(a.length()-2)!='b') return false;
+
             if (a.length()<3||a.charAt(0)=='b'||a.charAt(a.length()-1)=='b'||a.charAt(a.length()-1)==0||a.charAt(a.length()-1)==1)
             {return false;}
             int existb = 0;
@@ -38,11 +46,9 @@ public class Ex1 {
                 char ch = a.charAt(i);
                 if(ch=='G'&& existb==0){
                     return  false;
-                }if (ch =='b') {
+                }if (ch =='b')
                     existb++;
-                    if (a.length()-1-i>1)
-                        return false;
-                }if (ch =='b'||(ch>= 0 && ch<=9)|| (ch >='A'&& ch<='G') && existb<=1)
+                if (ch =='b'||(ch>= '0' && ch<='9')|| (ch >='A'&& ch<='G') && existb<=1)
                     ans = true;
                 else {ans = false;}
             }

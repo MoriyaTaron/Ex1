@@ -1,4 +1,4 @@
-import static assignments.ex1.Ex1.isNumber;
+
 
 /**
  * Intro2CS, Ex1 - very basic "main template"
@@ -7,7 +7,7 @@ import static assignments.ex1.Ex1.isNumber;
  */
 public class Ex1Main {
     public static void main(String[] args) {
-        if (isNumber("57b7"))
+        if (Ex1.isNumber("57b7"))
         System.out.println("grate");
         else
         System.out.println("no no no");
