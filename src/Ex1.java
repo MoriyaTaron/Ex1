@@ -31,27 +31,55 @@ public class Ex1 {
          */
         public static boolean isNumber(String a) {
             boolean ans = true;
+            int A=10;
+            int B=11;
+            int C=12;
+            int D=13;
+            int E=14;
+            int F=15;
+            int G=16;
 
-            for (int i = 0; i < a.length();i++)
+            int notDecim =0;
+            int base=0;
+            for(int i=0;i<=a.length()-1;i++){
+                if(a.charAt(i)>='0'&& a.charAt(i)<='9')
+                    base=10;
+                else notDecim =1;
+                if (a.charAt(i)==' ') return false;
+            }if(base==10&& notDecim==0)
+                return true;
+            if (a.length()<3)
+            if (a.length()-2!='b') return false;
+
+            if (a.charAt(a.length()-1)>='2'&&a.charAt(a.length()-1)<='9')
+                base= a.charAt(a.length()-1) - '0';
+            else if (a.charAt(a.length()-1)>='A'||a.charAt(a.length()-1)<='G')
+                base= a.charAt(a.length()-1) ;
+            else return false;
+            for (int i = 0; i < a.length()-2;i++)
             {
                 char ch = a.charAt(i);
-                if (ch <= '9' && ch >= '0') return true;
-            }
-            if (a.charAt(a.length()-2)!='b') return false;
-
-            if (a.length()<3||a.charAt(0)=='b'||a.charAt(a.length()-1)=='b'||a.charAt(a.length()-1)==0||a.charAt(a.length()-1)==1)
-            {return false;}
-            int existb = 0;
-            for(int i = 0;i<=a.length()-1;i++){
-                char ch = a.charAt(i);
-                if(ch=='G'&& existb==0){
-                    return  false;
-                }if (ch =='b')
-                    existb++;
-                if (ch =='b'||(ch>= '0' && ch<='9')|| (ch >='A'&& ch<='G') && existb<=1)
+                if (ch <= '9' && ch >= '0')
                     ans = true;
-                else {ans = false;}
+                else if (ch>='A'&& ch<='F')
+                    ans=true;
+                else return false;
+
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             return ans;
         }
 
