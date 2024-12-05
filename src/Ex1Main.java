@@ -7,10 +7,11 @@
  */
 public class Ex1Main {
     public static void main(String[] args) {
-        if (Ex1.isNumber("1bb2"))
+        if (Ex1.isNumber("A"))
         System.out.println("grate");
         else
         System.out.println("no no no");
+        System.out.println(Ex1.number2Int(""));
 //        Scanner sc = new Scanner(System.in);
 //        String num1 = "", num2="", quit = "quit";
 //        while (!num1.equals(quit) && !num2.equals(quit)) {

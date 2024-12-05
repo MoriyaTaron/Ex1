@@ -19,6 +19,45 @@ public class Ex1 {
          */
         public static int number2Int(String num) {
             int ans = -1;
+            if (isNumber(num)){
+                char[] charNum = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G'};
+                int[] valueNum = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+                int base = 0;
+                int decimelRepre;
+                int pow=1;
+                for (int i = 0; i <= num.length() - 1; i++) {
+                    base = 0;
+                    for (int j = 0; j <= 9; j++) {
+                        if (num.charAt(i) == charNum[j])
+                            base = 10;
+                    }if (base == 0)
+                        i = num.length();
+                }if (base ==10){
+                    ans=Integer.parseInt(num);
+                         return ans;
+                }for(int i=2;i<=16;i++) {
+                    if (num.charAt(num.length() - 1) == charNum[i]){
+                        base = valueNum[i];
+                }
+                }for(int i=0;i<num.length()-2;i++){
+                    for(int j=0;j<16;j++){
+                        if(num.charAt(i) == charNum[j]) {
+                            if (i == num.length() - 3)
+                                ans += valueNum[i];
+                            else{
+                                pow= num.length()-3-i;
+                                for (int x = 1; x <= pow; x++) {
+                                    pow = pow * base;
+                                }
+                            ans += valueNum[j] * pow;
+                        }
+
+                        }
+                    }
+
+                }
+
+            }
             // add your code here
 
             ////////////////////
