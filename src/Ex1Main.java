@@ -7,7 +7,7 @@
  */
 public class Ex1Main {
     public static void main(String[] args) {
-        if (Ex1.isNumber("BbG"))
+        if (Ex1.isNumber("1bb2"))
         System.out.println("grate");
         else
         System.out.println("no no no");

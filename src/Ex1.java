@@ -8,7 +8,7 @@
  * <number><b><base> e.g., “135bA” (i.e., “135”, as 10 is the default base), “100111b2”, “12345b6”,”012b5”, “123bG”, “EFbG”.
  * The following are NOT in the format (not a valid number):
  * “b2”, “0b1”, “123b”, “1234b11”, “3b3”, “-3b5”, “3 b4”, “GbG”, "", null,
- * You should implement th e following static functions:
+ * You should implement the following static functions:
  */
 public class Ex1 {
         /**
@@ -31,54 +31,40 @@ public class Ex1 {
          */
         public static boolean isNumber(String a) {
             boolean ans = true;
-            int A=10;
-            int B=11;
-            int C=12;
-            int D=13;
-            int E=14;
-            int F=15;
-            int G=16;
-
-            int notDecim =0;
-            int base=0;
-            for(int i=0;i<=a.length()-1;i++){
-                if(a.charAt(i)>='0'&& a.charAt(i)<='9')
-                    base=10;
-                else notDecim =1;
-                if (a.charAt(i)==' ') return false;
-            }if(base==10&& notDecim==0)
-                return true;
-            if (a.length()<3)
-            if (a.length()-2!='b') return false;
-
-            if (a.charAt(a.length()-1)>='2'&&a.charAt(a.length()-1)<='9')
-                base= a.charAt(a.length()-1) - '0';
-            else if (a.charAt(a.length()-1)>='A'||a.charAt(a.length()-1)<='G')
-                base= a.charAt(a.length()-1) ;
-            else return false;
-            for (int i = 0; i < a.length()-2;i++)
-            {
-                char ch = a.charAt(i);
-                if (ch <= '9' && ch >= '0')
-                    ans = true;
-                else if (ch>='A'&& ch<='F')
-                    ans=true;
-                else return false;
-
+            char[] validNum = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+            int[] valuenum = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+            int decim = 0;
+            int base = 0;
+            for (int i = 0; i <= a.length() - 1; i++) {
+                decim = 0;
+                for (int j = 0; j <= 9; j++) {
+                    if (a.charAt(i) == validNum[j])
+                        decim = 10;
+                }
+                if (decim == 0)
+                    i = a.length();
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
+            if (decim == 10)
+                return true;
+            if (a.length() < 3) return false;
+            if (a.charAt(a.length() - 2) != 'b') return false;
+            for (int i = 2; i <= 16; i++) {
+                if (a.charAt(a.length() - 1) == validNum[i])
+                    base = valuenum[i];
+            }
+            if (base == 0) return false;
+            int[] numbers = new int[a.length() - 2];
+              for (int i = 0; i < a.length()-2;i++) {
+             char ch = a.charAt(i);
+             for (int j = 0; j <= 15; j++) {
+              if (ch == validNum[j]) {
+              numbers[i] = valuenum[j];
+             j = 16;
+            }else numbers[i]=16;
+            }if (numbers[i]==16) return false;
+        }for (int i=0;i<=numbers.length-1;i++){
+                if (numbers[i]>=base) return false;
+            }
 
             return ans;
         }
