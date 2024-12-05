@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * This class represents a simple solution for Ex1.
  * As defined here: https://docs.google.com/document/d/1AJ9wtnL1qdEs4DAKqBlO1bXCM6r6GJ_J/r/edit/edit
@@ -23,8 +25,8 @@ public class Ex1 {
                 char[] charNum = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G'};
                 int[] valueNum = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
                 int base = 0;
-                int decimelRepre;
                 int pow=1;
+                int[]naturalNum =new int[num.length()-2];
                 for (int i = 0; i <= num.length() - 1; i++) {
                     base = 0;
                     for (int j = 0; j <= 9; j++) {
@@ -39,28 +41,18 @@ public class Ex1 {
                     if (num.charAt(num.length() - 1) == charNum[i]){
                         base = valueNum[i];
                 }
-                }for(int i=0;i<num.length()-2;i++){
-                    for(int j=0;j<16;j++){
-                        if(num.charAt(i) == charNum[j]) {
-                            if (i == num.length() - 3)
-                                ans += valueNum[i];
-                            else{
-                                pow= num.length()-3-i;
-                                for (int x = 1; x <= pow; x++) {
-                                    pow = pow * base;
-                                }
-                            ans += valueNum[j] * pow;
-                        }
-
-                        }
-                    }
-
+                }for(int i=0, j =naturalNum.length - 1 ;i<naturalNum.length&&j >= 0 ;i++, j--) {
+                    for (int x=0;x<charNum.length;x++) {
+                        if (num.charAt(j)==charNum[x])
+                            naturalNum[i]=valueNum[x];
+                    }ans=0;
+                }for (int i=0; i<= naturalNum.length-1;i++){
+                    pow=1;
+                    for (int j=1;j<=i;j++){
+                        pow*=base;
+                    }ans+= pow*naturalNum[i];
                 }
-
             }
-            // add your code here
-
-            ////////////////////
             return ans;
         }
         /**
