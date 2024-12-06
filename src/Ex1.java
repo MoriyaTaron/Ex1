@@ -110,9 +110,19 @@ public class Ex1 {
          */
         public static String int2Number(int num, int base) {
             String ans = "";
-            // add your code here
+            char[] validNum={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G'};
+            int[] valueNum={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+            if (num<0||base<2||base>16)  return ans;
+            char baseChar;
+            String stringnum = Integer.toString(num,base);
+            for (int i=2;i<=16;i++){
+                if (valueNum[i]==base){
+                    baseChar=validNum[i];
+                    ans= stringnum+'b'+baseChar;
+                }
+            }
 
-            ////////////////////
+
             return ans;
         }
 
@@ -124,9 +134,12 @@ public class Ex1 {
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
-            // add your code here
+            int n1Value = number2Int(n1);
+            int n2Value = number2Int(n2);
+            if (n1Value!=n2Value)
+                ans = false;
 
-            ////////////////////
+
             return ans;
         }
 
@@ -140,9 +153,14 @@ public class Ex1 {
          */
         public static int maxIndex(String[] arr) {
             int ans = 0;
-            // add your code here
+            for(int i=1;i<arr.length;i++){
+                if (arr[i]!= null && number2Int(arr[i])!=-1){
+                    if (number2Int(arr[i]) > number2Int(arr[ans])){
+                        ans =i;
+                    }
 
-            ////////////////////
+                }
+            }
             return ans;
         }
 }
