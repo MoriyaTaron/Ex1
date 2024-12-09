@@ -26,7 +26,6 @@ public class Ex1 {
                 int[] valueNum = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
                 int base = 0;
                 int pow=1;
-                int[]naturalNum =new int[num.length()-2];
                 for (int i = 0; i <= num.length() - 1; i++) {
                     base = 0;
                     for (int j = 0; j <= 9; j++) {
@@ -37,7 +36,8 @@ public class Ex1 {
                 }if (base ==10){
                     ans=Integer.parseInt(num);
                          return ans;
-                }for(int i=2;i<=16;i++) {
+                }int[]naturalNum =new int[num.length()-2];
+                for(int i=2;i<=16;i++) {
                     if (num.charAt(num.length() - 1) == charNum[i]){
                         base = valueNum[i];
                 }
@@ -115,6 +115,9 @@ public class Ex1 {
             if (num<0||base<2||base>16)  return ans;
             char baseChar;
             String stringnum = Integer.toString(num,base);
+            if (base==10){
+                ans=stringnum;
+            }else
             for (int i=2;i<=16;i++){
                 if (valueNum[i]==base){
                     baseChar=validNum[i];
@@ -153,10 +156,12 @@ public class Ex1 {
          */
         public static int maxIndex(String[] arr) {
             int ans = 0;
-            for(int i=1;i<arr.length;i++){
+            int max = Integer.MIN_VALUE;
+            for(int i=0;i<arr.length;i++){
                 if (arr[i]!= null && number2Int(arr[i])!=-1){
-                    if (number2Int(arr[i]) > number2Int(arr[ans])){
+                    if (number2Int(arr[i]) > max){
                         ans =i;
+                        max=number2Int(arr[i]);
                     }
 
                 }
