@@ -20,6 +20,7 @@ public class Ex1 {
          * @return
          */
         public static int number2Int(String num) {
+
             int ans = -1;
             if (isNumber(num)){
                 char[] charNum = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G'};
@@ -34,7 +35,7 @@ public class Ex1 {
                     }if (base == 0)
                         i = num.length();
                 }if (base ==10){
-                    ans=Integer.parseInt(num);
+                    ans=Integer.parseInt(num);    //replacing the string that representing a decimel number to Integer
                          return ans;
                 }int[]naturalNum =new int[num.length()-2];
                 for(int i=2;i<=16;i++) {
@@ -66,6 +67,10 @@ public class Ex1 {
             int[] valuenum = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
             int decim = 0;
             int base = 0;
+            if (a==null){
+                ans =false;
+                return ans;
+            }
             for (int i = 0; i <= a.length() - 1; i++) {
                 decim = 0;
                 for (int j = 0; j <= 9; j++) {
@@ -114,7 +119,7 @@ public class Ex1 {
             int[] valueNum={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
             if (num<0||base<2||base>16)  return ans;
             char baseChar;
-            String stringnum = Integer.toString(num,base);
+            String stringnum = Integer.toString(num,base); //using the function "to string(num,base)" for giving an integer that representing a num and integer that representing a base and the function whill calculate the number in the base i gave  then she whill return me back the number i gave in the base i gave represented as a string
             if (base==10){
                 ans=stringnum;
             }else
@@ -156,7 +161,7 @@ public class Ex1 {
          */
         public static int maxIndex(String[] arr) {
             int ans = 0;
-            int max = Integer.MIN_VALUE;
+            int max = Integer.MIN_VALUE; // using the "Min_Value" function for define Max as the minimum number, because i want that the first  valid valiue from the arr to bigger then this.
             for(int i=0;i<arr.length;i++){
                 if (arr[i]!= null && number2Int(arr[i])!=-1){
                     if (number2Int(arr[i]) > max){
