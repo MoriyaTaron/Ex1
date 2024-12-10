@@ -91,12 +91,30 @@ public class Ex1Test {
     assertEquals(291,Ex1.number2Int(validNum[4]));
     assertEquals(239,Ex1.number2Int(validNum[5]));
     assertEquals(41113,Ex1.number2Int(validNum[6]));
+        }
+        @Test
+    void equalsTest(){
+            assertEquals(true,Ex1.equals("1724","11010111100b2"));
+            assertEquals(true,Ex1.equals("75bG","90bD"));
+            assertEquals(true,Ex1.equals("010101b2","23b9"));
+            assertEquals(true,Ex1.equals("00b3","0bB"));
+            assertEquals(true,Ex1.equals("1254","1254bA"));
+            assertEquals(true,Ex1.equals("1253","1253"));
+            assertEquals(false,Ex1.equals("298bC","252bD"));
+            assertEquals(false,Ex1.equals(null,""));
+            assertEquals(false,Ex1.equals(null,"0"));
+            assertEquals(false,Ex1.equals(null,"1b2"));
+            assertEquals(false,Ex1.equals("obG","0bH"));
+            assertEquals(false,Ex1.equals("1b12","1bC"));
+            assertEquals(false,Ex1.equals("121","122"));
+            assertEquals(false,Ex1.equals("121b4","121b7"));
+
+
+
+        }
 
 
 
 
 
-
-
-}
     }

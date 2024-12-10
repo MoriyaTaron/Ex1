@@ -54,6 +54,7 @@ public class Ex1 {
                     }ans+= pow*naturalNum[i];
                 }
             }
+
             return ans;
         }
         /**
@@ -142,6 +143,10 @@ public class Ex1 {
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
+            if (!isNumber(n1)||!isNumber(n2)){
+                ans=false;
+                return ans;
+            }
             int n1Value = number2Int(n1);
             int n2Value = number2Int(n2);
             if (n1Value!=n2Value)
