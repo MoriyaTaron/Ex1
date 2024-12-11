@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**
+/***
  * Intro2CS, Ex1 - very basic "main template"
  * Make sure yo ur implementation of this main performs as the Ex1Sol.jar solution implement all needed functions.
  *

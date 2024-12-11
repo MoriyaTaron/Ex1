@@ -106,7 +106,7 @@ public class Ex1 {
             return ans;
         }
 
-        /**
+        /***
          * Calculate the number representation (in basis base)
          * of the given natural number (represented as an integer).
          * If num<0 or base is not in [2,16] the function should return "" (the empty String).
